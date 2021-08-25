@@ -65,14 +65,14 @@ public class CarEntitiesStepdefs {
         BrowserUtils.waitFor(3);
 
         if(usertype.equals("driver")){
-            System.out.println(new CarEntitiesPage().pageSubTitle);
+            System.out.println(new CarEntitiesPage().pageSubTitle.getText());
             Assert.assertEquals("Cars", new CarEntitiesPage().getPageSubTitle());
 
 
         }
 
         if(usertype.equals("sales manager")|| usertype.equals("store manager")){
-            System.out.println(new CarEntitiesPage().pageSubTitle);
+            System.out.println(new CarEntitiesPage().pageSubTitle.getText());
             Assert.assertEquals("All Cars", new CarEntitiesPage().getPageSubTitle());
 
         }
