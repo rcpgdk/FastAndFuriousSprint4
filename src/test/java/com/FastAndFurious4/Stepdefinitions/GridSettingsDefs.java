@@ -7,6 +7,7 @@ import com.FastAndFurious4.utilities.BrowserUtils;
 import com.FastAndFurious4.utilities.ConfigurationReader;
 import com.FastAndFurious4.utilities.Driver;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -22,6 +23,11 @@ public class GridSettingsDefs {
     LoginPage loginPage = new LoginPage();
     DashboardPage dashboardPage = new DashboardPage();
     CarsPage carsPage = new CarsPage();
+
+    @Given("the user is on the login page")
+    public void the_user_is_on_the_login_page() {
+        Driver.get().get(ConfigurationReader.get("url"));
+    }
 
     @When("the user is logged in as a {string}")
     public void the_user_is_logged_in_as_a(String userType) {
