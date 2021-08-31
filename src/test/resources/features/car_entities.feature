@@ -16,6 +16,8 @@ Feature: Car Entities Future
       | driver        |
       | sales manager |
       | store manager |
+
+
   @TRNS-402
     Scenario Outline: pages changes
       Given the user logged in as "<usertype>"
