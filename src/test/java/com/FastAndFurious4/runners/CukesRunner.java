@@ -16,12 +16,8 @@ import org.junit.runner.RunWith;
                 "html:target/default-html-reports"},
         features = "src/test/resources/features",
         glue = "com/FastAndFurious4/Stepdefinitions",
-        dryRun = false,
-        tags="@wip"
+        dryRun=false,
+        tags="@TRNS-415"
 )
-
-
-
-
 public class CukesRunner {
 }

@@ -8,6 +8,8 @@ import com.FastAndFurious4.utilities.ConfigurationReader;
 import com.FastAndFurious4.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import sun.rmi.runtime.Log;
@@ -17,41 +19,30 @@ public class CarEntitiesStepdefs {
     public void theUserLoggedInAs(String usertype) {
 
         Driver.get().get(ConfigurationReader.get("url"));
-        String username=null;
-        String password=null;
+        String username = null;
+        String password = null;
 
-        if(usertype.equals("driver")){
-            username=ConfigurationReader.get("driver_username");
-            password=ConfigurationReader.get("driver_password");
-            new LoginPage().login(username,password);
+        if (usertype.equals("driver")) {
+            username = ConfigurationReader.get("driver_username");
+            password = ConfigurationReader.get("driver_password");
+            new LoginPage().login(username, password);
             Assert.assertEquals("Quick Launchpad", new DashboardPage().getPageSubTitle());
 
-        }
+        } else if (usertype.equals("sales manager")) {
 
-        else if(usertype.equals("sales manager")){
+            username = ConfigurationReader.get("sales_manager_username");
+            password = ConfigurationReader.get("sales_manager_password");
+            new LoginPage().login(username, password);
+            Assert.assertEquals("Dashboard", new DashboardPage().getPageSubTitle());
 
-            username=ConfigurationReader.get("sales_manager_username");
-            password=ConfigurationReader.get("sales_manager_password");
-            new LoginPage().login(username,password);
-            Assert.assertEquals("Dashboard",new DashboardPage().getPageSubTitle());
+        } else if (usertype.equals("store manager")) {
 
-        }
-        else if(usertype.equals("store manager")){
-
-            username=ConfigurationReader.get("store_manager_username");
-            password=ConfigurationReader.get("store_manager_password");
-            new LoginPage().login(username,password);
-            Assert.assertEquals("Dashboard",new DashboardPage().getPageSubTitle());
+            username = ConfigurationReader.get("store_manager_username");
+            password = ConfigurationReader.get("store_manager_password");
+            new LoginPage().login(username, password);
+            Assert.assertEquals("Dashboard", new DashboardPage().getPageSubTitle());
 
         }
-
-
-
-
-
-
-
-
 
     }
 
@@ -61,24 +52,25 @@ public class CarEntitiesStepdefs {
     public void theNavigatesToTheAnd(String usertype, String tab, String module) {
 
 
-        new DashboardPage().navigateToModule(tab,module);
+        new DashboardPage().navigateToModule(tab, module);
         BrowserUtils.waitFor(3);
 
-        if(usertype.equals("driver")){
+        if (usertype.equals("driver")) {
             Assert.assertEquals("Cars", new CarEntitiesPage().getPageSubTitle());
 
 
         }
 
-        if(usertype.equals("sales manager")|| usertype.equals("store manager")){
+        if (usertype.equals("sales manager") || usertype.equals("store manager")) {
             Assert.assertEquals("All Cars", new CarEntitiesPage().getPageSubTitle());
 
         }
-
-
-
-
-
     }
 }
+
+
+
+
+
+
 
