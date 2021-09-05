@@ -81,7 +81,34 @@ public class CarEntitiesPage extends BasePage {
     @FindBy(xpath = "//div[@class='flash-messages-holder']")
     public WebElement flash_message_holder;
 
+    @FindBy(xpath = "//div/a[@title='Filters']")
+    public WebElement filter;
 
+    @FindBy(xpath = "(//span[@class='caret'])[1]")
+    public WebElement caret;
+
+    @FindBy(xpath = "//div[@class='btn filter-criteria-selector oro-drop-opener oro-dropdown-toggle filter-default-value']")
+    public WebElement caret_all;
+
+    @FindBy(xpath = "//button[@class='btn dropdown-toggle']")
+    public WebElement contains_button;
+
+    @FindBy(xpath = "//a[@class='dropdown-item choice-value']")
+    public List <WebElement> columnoptions;
+
+
+    @FindBy(xpath = "//input[@name='value']")
+    public WebElement driver_input;
+
+    @FindBy(xpath = "//button[text()='Update']")
+    public WebElement update_button;
+
+
+    @FindBy(xpath = "//tr/td[3]")
+    public List<WebElement> td_name;
+
+    @FindBy(xpath = "//input[@value='Driver']")
+    public WebElement driver_input_box;
 
 
 
@@ -90,6 +117,8 @@ public class CarEntitiesPage extends BasePage {
         for (WebElement el : list) {
             Assert.assertTrue(el.isDisplayed());
         }
+
+
     }
 
 }
