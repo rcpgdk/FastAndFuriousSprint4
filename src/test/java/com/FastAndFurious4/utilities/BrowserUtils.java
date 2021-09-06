@@ -163,6 +163,7 @@ import java.util.List;
             try {
                 Assert.assertTrue("Element not visible: " + by, Driver.get().findElement(by).isDisplayed());
             } catch (NoSuchElementException e) {
+                System.out.println("verifyElementDisplayed");
                 e.printStackTrace();
                 Assert.fail("Element not found: " + by);
 
@@ -180,6 +181,7 @@ import java.util.List;
                 Assert.assertFalse("Element should not be visible: " + by, Driver.get().findElement(by).isDisplayed());
             } catch (NoSuchElementException e) {
                 e.printStackTrace();
+                System.out.println("verifyElementDisplayed");
 
             }
         }
@@ -382,7 +384,4 @@ import java.util.List;
 
 
     }
-
-
-
 

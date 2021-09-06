@@ -15,7 +15,9 @@ import java.util.List;
 
 public abstract class BasePage {
 
-
+    public BasePage() {
+        PageFactory.initElements(Driver.get(), this);
+    }
 
 
         @FindBy(css = "span.title-level-1")
@@ -37,9 +39,6 @@ public abstract class BasePage {
         @FindBy(linkText = "My User")
         public WebElement myUser;
 
-        public BasePage() {
-            PageFactory.initElements(Driver.get(), this);
-        }
 
 
         /**
@@ -104,6 +103,7 @@ public abstract class BasePage {
                 WebElement tabElement = Driver.get().findElement(By.xpath(tabLocator));
                 new Actions(Driver.get()).moveToElement(tabElement).pause(200).doubleClick(tabElement).build().perform();
             } catch (Exception e) {
+                System.out.println("there is an issue to find element");
                 BrowserUtils.clickWithWait(By.xpath(tabLocator), 5);
             }
             try {
@@ -112,6 +112,7 @@ public abstract class BasePage {
                 BrowserUtils.scrollToElement(Driver.get().findElement(By.xpath(moduleLocator)));
                 Driver.get().findElement(By.xpath(moduleLocator)).click();
             } catch (Exception e) {
+                System.out.println("there is an issue to find element2");
 //            BrowserUtils.waitForStaleElement(Driver.get().findElement(By.xpath(moduleLocator)));
                 BrowserUtils.clickWithTimeOut(Driver.get().findElement(By.xpath(moduleLocator)),  5);
             }
