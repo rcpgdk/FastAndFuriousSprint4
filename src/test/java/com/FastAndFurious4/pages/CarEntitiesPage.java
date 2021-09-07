@@ -82,7 +82,8 @@ public class CarEntitiesPage extends BasePage {
     public WebElement flash_message_holder;
 
 
-
+@FindBy (xpath = "//td[@data-column-label='Driver']")
+public WebElement CarInfo;
 
 
     public void  verifyelementsDisplayed(List<WebElement> list) {
