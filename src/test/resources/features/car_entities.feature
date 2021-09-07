@@ -1,5 +1,5 @@
 
-
+@smoke
 
 Feature: Car Entities Future
 

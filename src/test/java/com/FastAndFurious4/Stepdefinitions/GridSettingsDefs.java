@@ -99,6 +99,7 @@ public class GridSettingsDefs {
         //asserting that first 15 elements are displayed
         for (int i = 1; i <= 15; i++) {
             WebElement element = Driver.get().findElement(By.xpath("(//table)[3]/thead/tr/th[" + i + "]"));
+            BrowserUtils.waitFor(1);
             Assert.assertTrue(element.isDisplayed());
         }
     }

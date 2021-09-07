@@ -103,7 +103,7 @@ BrowserUtils.waitFor(3);
     }
     @Given("user clicks any column name")
     public void user_clicks_any_column_name() {
-BrowserUtils.waitFor(3);
+        BrowserUtils.waitFor(3);
         new CarEntitiesPage().anyColumn.click();
 
 
