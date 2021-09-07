@@ -30,4 +30,8 @@ public class CarsPage {
 
     @FindBy(xpath = "//span[@class='close']")
     public WebElement closeGridSettings;
+
+    @FindBy(xpath = "//table/tbody")
+    public WebElement firstRowCar;
+
 }
